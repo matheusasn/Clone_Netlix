@@ -1,0 +1,16 @@
+<!-- Componante NavBar -->
+<app-nav-bar [opened]="manuOpened" (menuToggle)="setMenuState($event)"></app-nav-bar>
+
+<div class="content-fluid">
+
+    <app-full-banner></app-full-banner>
+
+    <app-list-titles title="Adicionado recentemente"></app-list-titles>
+    <app-list-titles title="Em alta"></app-list-titles>
+    <app-list-titles title="Continuar assistindo"></app-list-titles>
+
+</div>
+
+<app-footer></app-footer>
+
+<div class="backdrop" *ngIf="manuOpened" (click)="closeMenu()"></div>

@@ -1,0 +1,24 @@
+<div class="title-item" (mouseenter)="playVideo()" (mouseleave)="stopVideo()">
+    <video #trailer [src]="title.trailer" controls muted="muted"></video>
+    <img [src]="title.cover" alt="Título">
+    <div class="items">
+        <div class="left-side">
+            <button type="button" class="btn btn-play"><i class="material-icons">play_arrow</i></button>
+            <button type="button" class="btn btn-muted" (click)="toggleSound()">
+                <i class="material-icons" *ngIf="getMuted()">volume_off</i>
+                <i class="material-icons" *ngIf="!getMuted()">volume_up</i>
+            </button>
+            <h2>{{ title.name }}</h2>
+            <ul class="infos">
+                <li class="relevance">{{ title.relevance }}% relevante</li>
+                <li class="age" [ngClass]="{'age-free': title.age === 0, 'age-12': title.age === 12,
+                'age-14': title.age === 14, 'age-16': title.age === 16, 'age-18': title.age === 18 }"></li>
+                <li class="parts">{{ title.parts }} partes</li>
+            </ul>
+            <ul class="categories">
+                <li *ngFor="let category of title.categories">{{ category }}</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
